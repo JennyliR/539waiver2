@@ -1,5 +1,5 @@
 html{
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -46,6 +46,10 @@ nav a{
   Add an underline whenever the mouse hovers over a 
   link in the nav. 
   *************/ 
+a:hover{ 
+    text-decoration: underline; 
+}
+
 
 .skip a{
   background: white;
@@ -54,7 +58,8 @@ nav a{
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
-
+  position: absolute;
+  top: -40px;
   /************  
   Your Code Here
   By default this link should be positioned 40px higher
@@ -68,7 +73,9 @@ nav a{
   The link in the skip class should be positioned at the 
   top of it's parent when it is in focus. 
   *************/ 
-
+.skip a:focus{
+    top: 0;
+}
 
   /************  
   Your Code Here -  Write the selector AND rule 
@@ -76,7 +83,9 @@ nav a{
   Any element in focus should have a 2px black border 
   on all four sides.
   *************/  
-
+:focus{
+    border: 2px black solid;
+}
 
 nav{
   background-color: #ddd;
@@ -91,13 +100,14 @@ footer{
   text-align: center;
 }
 
-
-
-
 .container{
   /************  
   Your Code Here
   **************/
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-row-gap: 15px;
 }
 
 header{
@@ -112,8 +122,9 @@ header{
   Your Code Here
   Set background-image to header.jpg in the images folder 
   **************/
- 
-
+  background-image: url('../images/header.jpg');
+  background-color: #cccccc;
+  
   grid-column: 1 / -1;  /*Can you explain what this does?*/
   grid-row: 1 / auto;   /*Can you rewrite it?*/
 }
@@ -125,30 +136,34 @@ header p{
   text-align: center;
 }
 
-
-}
 .about, .method, .clients, .contact{
-  /************  
+    /************  
   Your Code Here
   **************/
+    grid-column: 2/auto;
 }
 
 .about-image, .method-image, .clients-image, .contact-image{
   /************  
   Your Code Here
   **************/
+    grid-column: 1/-1;
+    max-height: 700px;
+    overflow: hidden;
 }
 
 .about, .about-image{
   /************  
   Your Code Here
   **************/
+     grid-row:2/auto;
 }
 
 .method, .method-image{
   /************  
   Your Code Here
   **************/
+     grid-row:3/auto;
 }
 
 
@@ -156,6 +171,7 @@ header p{
   /************  
   Your Code Here
   **************/
+     grid-row:4/auto;
 }
 
 
@@ -163,6 +179,7 @@ header p{
   /************  
   Your Code Here
   **************/
+    grid-row:5/auto;
 }
 
 .text-block{
@@ -174,6 +191,7 @@ header p{
   Your Code Here
   Align the content in the center
   **************/
+  place-self: center;
 }
 
 
@@ -183,25 +201,31 @@ header p{
     padding: 30px 0px;
     /************  
     Your Code Here
-    **************/
+    **************/  
+    text-align: right;
   }
 
   .container{
     /************  
     Your Code Here
     **************/
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px;
+    grid-template-rows: repeat(5, 400px);
   }
 
   .about, .clients, .method-image, .contact-image{
     /************  
     Your Code Here
     **************/
+      grid-column: 3/span 2;
   }
 
   .about-image, .clients-image, .method, .contact{
     /************  
     Your Code Here
     **************/
+      grid-column: 2/span 2;
   }
 }
 
@@ -212,6 +236,7 @@ header p{
     Your Code Here
     Remove the scrolling
     *************/
+      scroll-behavior: auto;
   }
 
   .skip a{
@@ -219,6 +244,7 @@ header p{
     Your Code Here
     Remove the animation
     *************/
+    transition: none; 
   }
 
   /*Turn off parallax*/
